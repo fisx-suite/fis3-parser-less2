@@ -16,18 +16,13 @@ module.exports = function (content, file, conf) {
     }, conf);
 
     // 初始化 less 查询路径
-    var paths = [file.dirname, fis.project.getProjectPath()];
-    var confPaths = conf.paths;
-    if (confPaths) {
-        paths.forEach(function (item) {
-            if (_.indexOf(confPaths, item) === -1) {
-                confPaths.push(item);
-            }
-        });
-    }
-    else {
-        conf.paths = paths;
-    }
+    var confPaths = conf.paths || [];
+    [file.dirname, fis.project.getProjectPath()].forEach(function (item) {
+        if (_.indexOf(confPaths, item) === -1) {
+            confPaths.push(item);
+        }
+    });
+    conf.paths = confPaths;
 
     less.render(content, conf, function (err, result) {
         if (err) {

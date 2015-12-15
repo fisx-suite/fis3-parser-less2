@@ -29,7 +29,7 @@ module.exports = function (content, file, conf) {
             outputSourceFiles: true,
             sourceMapURL: path.basename(sourceMapFile.url),
             sourceMapBasepath: fis.project.getProjectPath(),
-            sourceMapRootpath: 'source',
+            sourceMapRootpath: '/source',
             sourceMapFileInline: false
         }, sourceMap);
     }

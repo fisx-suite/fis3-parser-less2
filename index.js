@@ -7,13 +7,32 @@
 
 var less = require('less');
 module.exports = function (content, file, conf) {
-
     // 初始化配置
     var _ = fis.util;
     conf = _.assign({
         syncImport: true,
         relativeUrls: true
     }, conf);
+
+    var sourceMap = conf.sourceMap;
+    var sourceMapFile;
+    if (sourceMap) {
+        if (_.isBoolean(sourceMap)) {
+            sourceMap = {};
+        }
+
+        var sourceMapPath = file.realpath + '.map';
+        sourceMapFile = fis.file.wrap(sourceMapPath);
+        sourceMapFile.setContent('');
+        var path = require('path');
+        conf.sourceMap = _.assign({
+            outputSourceFiles: true,
+            sourceMapURL: path.basename(sourceMapFile.url),
+            sourceMapBasepath: fis.project.getProjectPath(),
+            sourceMapRootpath: 'source',
+            sourceMapFileInline: false
+        }, sourceMap);
+    }
 
     // 初始化 less 查询路径
     var confPaths = conf.paths || [];
@@ -29,10 +48,15 @@ module.exports = function (content, file, conf) {
             throw err;
         }
         content = result.css;
+
+        if (sourceMapFile && result.map) {
+            sourceMapFile.setContent(result.map.toString());
+            file.derived.push(sourceMapFile);
+        }
+
         result.imports.forEach(function (path) {
             file.cache.addDeps(path);
         });
     });
-
     return content;
 };

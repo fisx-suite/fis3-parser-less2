@@ -16,7 +16,7 @@ npm install fis3-parser-less2 -g
 
 ```javasciprt
 fis.match('*.less', {
-    parser: 'less',
+    parser: 'less2',
     rExt: '.css'
 });
 ```
@@ -25,7 +25,7 @@ Custom parse options:
 
 ```javasciprt
 fis.match('*.less', {
-    parser: fis.plugin('less', {
+    parser: fis.plugin('less2', {
         sourceMap: true
     }),
     rExt: '.css'

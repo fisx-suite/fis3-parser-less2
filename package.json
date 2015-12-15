@@ -1,5 +1,5 @@
 {
-  "name": "fis3-parser-less",
+  "name": "fis3-parser-less2",
   "version": "0.1.0",
   "description": "A parser for fis3 to compile less files.",
   "main": "index.js",

@@ -1,4 +1,4 @@
-fis3-parser-less
+fis3-parser-less2
 ========
 
 > A parser for fis3 to compile less files.
@@ -9,7 +9,7 @@ fis3-parser-less
 ### Install
  
 ```shell
-npm install fis3-parser-less -g
+npm install fis3-parser-less2 -g
 ```
 
 ### Add configure to `fis-conf.js`

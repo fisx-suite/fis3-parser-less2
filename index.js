@@ -5,11 +5,14 @@
 
 'use strict';
 
+var path = require('path');
 var less = require('less');
+
 module.exports = function (content, file, conf) {
     // 初始化配置
     var _ = fis.util;
     conf = _.assign({
+        filename: path.basename(file.realpath),
         syncImport: true,
         relativeUrls: true
     }, conf);
@@ -24,7 +27,6 @@ module.exports = function (content, file, conf) {
         var sourceMapPath = file.realpath + '.map';
         sourceMapFile = fis.file.wrap(sourceMapPath);
         sourceMapFile.setContent('');
-        var path = require('path');
         conf.sourceMap = _.assign({
             outputSourceFiles: true,
             sourceMapURL: path.basename(sourceMapFile.url),

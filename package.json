@@ -1,6 +1,6 @@
 {
   "name": "fis3-parser-less2",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A parser for fis3 to compile less files.",
   "main": "index.js",
   "scripts": {

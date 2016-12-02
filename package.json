@@ -6,6 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wuhy/fis3-parser-less2.git"
+  },
+  "bugs": {
+    "url": "http://github.com/wuhy/fis3-parser-less2/issues"
+  },
   "keywords": [
     "fis",
     "fis3",
@@ -15,6 +22,6 @@
   "author": "sparklewhy@gmail.com",
   "license": "ISC",
   "dependencies": {
-    "less": "^2.5.3"
+    "less": "^2.7.1"
   }
 }

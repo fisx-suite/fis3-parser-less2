@@ -1,6 +1,8 @@
 fis3-parser-less2
 ========
 
+[![Dependency Status](https://david-dm.org/wuhy/fis3-parser-less2.svg)](https://david-dm.org/wuhy/fis3-parser-less2) [![devDependency Status](https://david-dm.org/wuhy/fis3-parser-less2/dev-status.svg)](https://david-dm.org/wuhy/fis3-parser-less2#info=devDependencies) [![NPM Version](https://img.shields.io/npm/v/fis3-parser-less2.svg?style=flat)](https://npmjs.org/package/fis3-parser-less2)
+
 > A parser for fis3 to compile less files.
 
 
